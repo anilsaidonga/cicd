@@ -3,7 +3,7 @@ name: Spring Boot CI
 on:
   push:
     branches:
-      - main  # runs when you push to main branch
+      - main  # Runs CI whenever you push to 'main'
 
 jobs:
   build:
@@ -17,7 +17,7 @@ jobs:
       uses: actions/setup-java@v3
       with:
         distribution: 'temurin'
-        java-version: '17'
+        java-version: '17'  # Change if you're using Java 21
 
     - name: Build and test with Maven
-      run: ./mvnw test
+      run: mvn -B clean verify
